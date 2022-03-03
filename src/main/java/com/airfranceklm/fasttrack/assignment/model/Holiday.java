@@ -1,6 +1,7 @@
 package com.airfranceklm.fasttrack.assignment.model;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,7 +38,15 @@ public class Holiday {
 
     }
 
-    
+    public Holiday(String label, String employeeId, Date startOfHoliday, Date endOfHoliday) {
+        this.label = label;
+        this.employeeId = employeeId;
+        this.startOfHoliday = startOfHoliday;
+        this.endOfHoliday = endOfHoliday;
+        this.id = UUID.randomUUID().toString();
+        this.status = STATUS.DRAFT;
+    }
+
     public String getId() {
         return id;
     }
